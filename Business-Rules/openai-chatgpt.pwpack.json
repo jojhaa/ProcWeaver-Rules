@@ -1,0 +1,58 @@
+{
+  "formatVersion": "1.0",
+  "exportedAt": "2026-09-21T10:07:25.676Z",
+  "bundle": {
+    "packageId": "openai-chatgpt",
+    "packageName": "OpenAI / ChatGPT 生产力套件",
+    "packageVersion": "v1.3",
+    "category": "dev",
+    "mode": "strict",
+    "icon": "🧠",
+    "description": "OpenAI 应用与后台进程的分流模板；导入后选择本机出口并核对进程范围。",
+    "slots": [
+      {
+        "id": "main",
+        "name": "主业务出口",
+        "description": "业务主进程与核心后台伴生进程访问外网所使用的代理节点",
+        "required": true
+      },
+      {
+        "id": "dns",
+        "name": "DNS 解析出口",
+        "description": "域名解析出站插槽，默认跟随主业务出口以防 DNS 投毒",
+        "required": false,
+        "followSlotId": "main"
+      }
+    ],
+    "processes": [
+      {
+        "exe": "ChatGPT.exe",
+        "role": "main",
+        "description": "桌面主客户端"
+      },
+      {
+        "exe": "codex.exe",
+        "role": "worker",
+        "description": "OpenAI 核心数据与代码辅助进程"
+      },
+      {
+        "exe": "node.exe",
+        "role": "worker",
+        "description": "扩展脚本与本地运行依赖"
+      }
+    ],
+    "additionalExes": [
+      "ChatGPT.exe",
+      "codex.exe",
+      "node.exe"
+    ],
+    "domains": [
+      "openai.com",
+      "chatgpt.com",
+      "oaistatic.com",
+      "oaiusercontent.com",
+      "auth0.openai.com"
+    ],
+    "author": "ProcWeaver"
+  }
+}

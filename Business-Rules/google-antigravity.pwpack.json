@@ -1,0 +1,65 @@
+{
+  "formatVersion": "1.0",
+  "exportedAt": "2026-09-21T10:07:25.676Z",
+  "bundle": {
+    "packageId": "google-antigravity",
+    "packageName": "Google Antigravity 2.0 研发套件",
+    "packageVersion": "v1.0",
+    "category": "dev",
+    "mode": "strict",
+    "icon": "🌌",
+    "description": "反重力主程序、语言服务与命令行进程的分流模板；导入后选择本机出口。",
+    "slots": [
+      {
+        "id": "main",
+        "name": "主业务出口",
+        "description": "业务主进程与核心后台伴生进程访问外网所使用的代理节点",
+        "required": true
+      },
+      {
+        "id": "dns",
+        "name": "DNS 解析出口",
+        "description": "域名解析出站插槽，默认跟随主业务出口以防 DNS 投毒",
+        "required": false,
+        "followSlotId": "main"
+      }
+    ],
+    "processes": [
+      {
+        "exe": "Antigravity.exe",
+        "role": "main",
+        "description": "主集成开发环境与核心进程"
+      },
+      {
+        "exe": "language_server.exe",
+        "role": "worker",
+        "description": "LSP 语言模型与语义推理核心工作服务"
+      },
+      {
+        "exe": "agy.exe",
+        "role": "cli",
+        "description": "Antigravity 开发者命令行终端"
+      },
+      {
+        "exe": "antigravity-service.exe",
+        "role": "worker",
+        "description": "后台状态监测守护服务"
+      }
+    ],
+    "additionalExes": [
+      "Antigravity.exe",
+      "antigravity.exe",
+      "language_server.exe",
+      "agy.exe",
+      "antigravity-service.exe",
+      "Antigravity IDE.exe"
+    ],
+    "domains": [
+      "antigravity.google",
+      "gemini.google.com",
+      "generativeai.google",
+      "aistudio.google.com"
+    ],
+    "author": "ProcWeaver"
+  }
+}

@@ -1,0 +1,8 @@
+/*
+!/.gitignore
+!/README.md
+!/LICENSE
+!/Business-Rules/
+/Business-Rules/*
+!/Business-Rules/openai-chatgpt.pwpack.json
+!/Business-Rules/google-antigravity.pwpack.json
